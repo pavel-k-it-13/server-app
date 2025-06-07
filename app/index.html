@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grossbeak App</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="video.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <i class="bx bx-menu menu-icon"></i>
+      <span class="logo-name">Grossbeak App</span>
+    </div>
+    <div class="sidebar">
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">Меню</span>
+      </div>
+      <div class="sidebar-content">
+        <ul class="lists">
+          <li class="list">
+            <a href="index.html" class="nav-link">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="link">Главная</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="soft.html" class="nav-link">
+              <i class="bx bx-anchor icon"></i>
+              <span class="link">Софт</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bx-file icon"></i>
+              <span class="link">Конфиги</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="video.html" class="nav-link">
+              <i class="bx bx-video icon"></i>
+              <span class="link">Видео</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="bottom-cotent">
+          <li class="list">
+            <a href="#" class="nav-link theme-toggle">
+              <i class="bx bx-moon icon"></i>
+              <span class="link">Темная тема</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bx-cog icon"></i>
+              <span class="link">Настройки</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bx-log-out icon"></i>
+              <span class="link">Выход</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <section class="overlay"></section>
+    <section class="file-manager">
+      <div class="upload-container">
+        <h2>Загрузка файлов</h2>
+        <div class="upload-area">
+          <input type="file" id="fileInput" multiple>
+          <button id="uploadBtn" class="btn">Загрузить файлы</button>
+          <div class="progress-container">
+            <div class="progress-bar"></div>
+            <span class="progress-text">0%</span>
+          </div>
+        </div>
+      </div>
+    
+      <div class="files-list">
+        <h2>Файлы в папке share</h2>
+        <div class="files-container" id="filesContainer">
+          <!-- Файлы будут загружаться здесь динамически -->
+          <div class="loading-message">Загрузка списка файлов...</div>
+        </div>
+      </div>
+    </section>
+    
+    <script src="video.js"></script>
+</body>
+</html>

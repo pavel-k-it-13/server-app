@@ -1,0 +1,303 @@
+/* Soundpad GC */
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Статьи</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="articles.css" />
+    <style>
+      /* Встроенные стили оформления статьи с синими цветами (#4070f4) */
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, #e6f0ff 0%, #cbdcff 100%);
+        color: #222;
+        margin: 0;
+        padding: 0;
+      }
+      main.container {
+        max-width: 900px;
+        margin: 60px auto 60px auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 6px 24px rgba(64, 112, 244, 0.15);
+        padding: 40px 24px 48px 24px;
+      }
+      main.container h1, main.container h2 {
+        text-align: center;
+        margin-top: 0;
+      }
+      main.container h1 {
+        color: #4070f4;
+        font-size: 2.8em;
+        margin-bottom: 0.2em;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+      main.container h2 {
+        color: #1e3bb8;
+        margin-top: 2.2em;
+        font-size: 2em;
+      }
+      main.container p {
+        font-size: 1.18em;
+        line-height: 1.7;
+        margin: 1.2em 0;
+      }
+      main.container ul {
+        font-size: 1.18em;
+        margin-left: 1.4em;
+        margin-bottom: 1.6em;
+      }
+      /* Основное изображение BlCore.png на всю ширину */
+      main.container .main-img-full {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(64, 112, 244, 0.15);
+        background: #f0f4ff;
+        display: block;
+        margin: 0 auto 24px auto;
+        object-fit: contain;
+      }
+      /* Сетка 2x2 с соотношением сторон 16.5:9 */
+      main.container .image-grid-custom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 18px;
+        width: 100%;
+        margin: 28px 0 38px 0;
+      }
+      main.container .image-grid-custom img {
+        width: 100%;
+        aspect-ratio: 755 / 533;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(64, 112, 244, 0.15);
+        background: #f0f4ff;
+        display: block;
+      }
+      /* Кнопки загрузки */
+      main.container .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+        margin-top: 38px;
+      }
+      main.container .download-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: linear-gradient(90deg, #4caf50 0%, #388e3c 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.15em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(64, 112, 244, 0.3);
+      }
+      main.container .download-btn-blue {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: linear-gradient(90deg, #4070f4 0%, #1e3bb8 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.15em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(64, 112, 244, 0.3);
+      }
+      main.container .download-btn-orange {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: linear-gradient(90deg, #f4ac40 0%, #b8871e 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.15em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(64, 112, 244, 0.3);
+      }
+      main.container .download-btn:hover {
+        background: linear-gradient(90deg, #388e3c 0%, #4caf50 100%);
+        transform: translateY(-2px) scale(1.03);
+      }
+      main.container .download-btn-blue:hover {
+        background: linear-gradient(90deg, #1e3bb8 0%, #4070f4 100%);
+        transform: translateY(-2px) scale(1.03);
+      }
+      main.container .download-btn-orange:hover {
+        background: linear-gradient(90deg, #b8871e 0%, #f4ac40 100%);
+        transform: translateY(-2px) scale(1.03);
+      }
+      main.container .download-btn svg {
+        width: 1.2em;
+        height: 1.2em;
+        fill: #fff;
+      }
+      main.container .download-btn-blue svg {
+        width: 1.2em;
+        height: 1.2em;
+        fill: #fff;
+      }
+      main.container .download-btn-orange svg {
+        width: 1.2em;
+        height: 1.2em;
+        fill: #fff;
+      }
+      /* Внимание */
+      main.container .alert {
+        color: #1e3bb8;
+        font-weight: bold;
+        background: #dbe5ff;
+        border-left: 5px solid #4070f4;
+        padding: 10px 18px;
+        border-radius: 6px;
+        margin: 18px 0;
+        font-size: 1.09em;
+      }
+      main.container a {
+        color: #4070f4;
+        text-decoration: underline;
+        transition: color 0.2s;
+      }
+      main.container a:hover {
+        color: #1e3bb8;
+      }
+      /* Адаптивность */
+      @media (max-width: 700px) {
+        main.container {
+          padding: 16px 4vw 24px 4vw;
+        }
+        main.container h1 {
+          font-size: 2em;
+        }
+        main.container h2 {
+          font-size: 1.4em;
+        }
+        main.container .image-grid-custom {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(4, auto);
+          gap: 14px;
+        }
+        main.container .main-img-full,
+        main.container .image-grid-custom img {
+          max-width: 100%;
+        }
+        main.container .button-container {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <i class="bx bx-menu menu-icon"></i>
+      <span class="logo-name">Сайт Гросбека</span>
+    </div>
+    <div class="sidebar">
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">Меню</span>
+      </div>
+      <div class="sidebar-content">
+        <ul class="lists">
+          <li class="list">
+            <a href="../index.html" class="nav-link">
+              <i class="bx bx-home-alt icon"></i>
+              <span class="link">Главная</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../soft.html" class="nav-link">
+              <i class="bx bx-anchor icon"></i>
+              <span class="link">Софт</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bx-file icon"></i>
+              <span class="link">Конфиги</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../video.html" class="nav-link">
+              <i class="bx bx-video icon"></i>
+              <span class="link">Видео</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="bottom-cotent">
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bx-cog icon"></i>
+              <span class="link">Настройки</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#" class="nav-link">
+              <i class="bx bx-log-out icon"></i>
+              <span class="link">Выход</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <section class="overlay"></section>
+
+    <main class="container">
+      <h1>Soundpad 3.2.1 GC</h1>
+      <p>
+        <strong>Soundpad</strong> — это медиаплеер, разработанный компанией Leppsoft, который позволяет вам воспроизводить звуки через аудиоустройства и в голосовых чатах. Вы также можете пользоваться удобным встроенным аудиорекордером и редактором, чтобы записывать и создавать звуки. Вы можете затем выводить эти звуки в высоком качестве в различные приложения и игры для общения.
+      </p>
+      <h2>В чём особенность Soundpad 3.2.1 GC</h2>
+      <p>Это кряк стим версии Soundpad. поэтому лицензия никогда не слетает.</p>
+      <img src="/pirlist/soundpad/soundpad.jpg" alt="Bloody 7 ReSkin" class="main-img-full" />
+      <p>
+        Возможности. Soundpad имеет множество настроек и функций, которые делают воспроизведение звуков более простым и интересным. Вы можете настраивать горячие клавиши для каждого звукового файла и воспроизводить их быстро во время игры. Вы можете также нормализовывать громкость звуков, чтобы они соответствовали громкости вашего голоса. Вы можете также записывать то, что вы слышите, с помощью встроенного аудиорекордера. Вы можете также редактировать свои звуки с помощью встроенного аудиоредактора. Вы можете быстро находить звуки с помощью поисковой строки. Вы можете сохранять и загружать разные списки звуков.
+      </p>
+      <div class="image-grid-custom">
+        <img src="/pirlist/soundpad/soundpad2.jpg" alt="Кнопка Bloody 7" />
+        <img src="/pirlist/soundpad/soundpad3.jpg" alt="Макрос Bloody 7" />
+      </div>
+      
+      
+      <div class="button-container">
+        <button class="download-btn" type="button" onclick="window.location.href='/files/SoundpadCrack.exe'">
+          Скачать Soundpad
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z" />
+          </svg>
+        </button>
+        <button class="download-btn-blue" type="button" onclick="window.location.href='https://cloud.mail.ru/public/h7b1/5SQefWFea'">
+            Скачать c зеркала
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z" />
+            </svg>
+          </button>
+      </div>
+    </main>
+
+    <script src="articles.js"></script>
+</body>
+</html>

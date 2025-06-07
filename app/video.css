@@ -1,0 +1,229 @@
+/* Файл: video.css */
+
+/* Стили для поля поиска */
+.search-container {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+}
+
+#searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #5cb85c; /* Пример цвета при фокусе */
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+/* Стили для галереи и видео блоков */
+.video-gallery {
+    display: grid;
+    /* 3 колонки на больших экранах */
+    grid-template-columns: repeat(3, 1fr);
+    /* Уменьшенное расстояние между блоками */
+    gap: 15px;
+    /* Умеренные отступы вокруг галереи */
+    padding: 20px;
+    /* Отступ сверху учитывает высоту навбара (70px) и отступ от search-container (15px) */
+    padding-top: 85px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-block {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Обрезает все, что выходит за границы */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Видео над текстом */
+}
+
+.video-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-block video {
+    width: 100%;
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    aspect-ratio: 16 / 9; /* Поддерживаем соотношение сторон 16:9 */
+    object-fit: cover; /* Масштабирует видео, чтобы покрыть блок, обрезая лишнее */
+    display: block; /* Убирает лишний отступ снизу */
+    background-color: #eee; /* Фон для видео пока оно не загрузилось */
+}
+
+.video-title {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap; /* Запрещаем перенос текста */
+    overflow: hidden; /* Скрываем то, что не помещается */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+    border-top: 1px solid #eee; /* Небольшой разделитель */
+}
+
+/* Стили для сообщений внутри галереи (загрузка, ошибки) */
+.video-gallery .loading-message,
+.video-gallery .error-message {
+    grid-column: 1 / -1; /* Занимает все колонки грида */
+    text-align: center;
+    padding: 40px 20px;
+    color: #555;
+    font-size: 16px;
+}
+.video-gallery .error-message {
+    color: #d9534f; /* Красный цвет для ошибок */
+}
+
+
+/* Стили для развернутого плеера */
+.video-player-expanded {
+    position: fixed; /* Фиксированное позиционирование на всю страницу */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Полупрозрачный фон */
+    display: none; /* Изначально скрыт */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Поверх всех остальных элементов */
+    opacity: 0; /* Начальная прозрачность для анимации */
+    visibility: hidden; /* Скрываем для доступности и производительности */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#expandedVideo {
+    display: block;
+    max-width: 95%; /* Максимальная ширина видео */
+    max-height: 90%; /* Максимальная высота видео */
+    background-color: #000; /* Фон самого видео */
+    outline: none; /* Убираем синюю обводку при фокусе */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Тень для выделения */
+}
+
+.close-player {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px; /* Для вертикального центрирования крестика */
+    text-align: center;
+    cursor: pointer;
+    z-index: 1001; /* Поверх видео */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.close-player:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Скрытие прокрутки body при открытом плеере */
+body.video-open {
+    overflow: hidden; /* Запретить прокрутку фона */
+}
+
+
+/* --- Адаптивность --- */
+
+/* Планшеты (например, от 769px до 992px) - 2 колонки */
+@media (max-width: 992px) and (min-width: 769px) {
+    .video-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 15px; /* Оставляем тот же или меняем gap */
+        padding-left: 15px; /* Можно чуть уменьшить паддинги */
+        padding-right: 15px;
+        padding-top: 100px; /* (70px навбар + 15px от search-container + доп. отступ) */
+    }
+}
+
+/* Мобильные устройства (<= 768px) - 1 колонка */
+@media (max-width: 768px) {
+    .video-gallery {
+        grid-template-columns: 1fr; /* 1 колонка */
+        padding-left: 10px; /* Уменьшаем паддинги для мобильных */
+        padding-right: 10px;
+        padding-top: 85px; /* (70px навбар + 15px от search-container) */
+        gap: 15px; /* Оставляем или уменьшаем gap */
+    }
+
+    #expandedVideo {
+        max-width: 100%; /* Видео может занимать почти всю ширину */
+        max-height: 85%;
+    }
+
+    .close-player {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+        line-height: 33px;
+    }
+
+    .video-title {
+        font-size: 13px; /* Можно чуть уменьшить шрифт заголовка */
+    }
+}
+
+/* Добавьте в конец файла video.css */
+
+/* Темная тема для видео галереи */
+body.dark-theme .search-container {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+  }
+  
+  body.dark-theme #searchInput {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #f5f5f5;
+  }
+  
+  body.dark-theme #searchInput:focus {
+    border-color: #5cb85c;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+  }
+  
+  body.dark-theme .video-block {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  body.dark-theme .video-title {
+    color: #f5f5f5;
+    border-top: 1px solid #444;
+  }
+  
+  body.dark-theme .video-gallery .loading-message,
+  body.dark-theme .video-gallery .error-message {
+    color: #aaa;
+  }
+  
+  body.dark-theme .video-gallery .error-message {
+    color: #e57373;
+  }

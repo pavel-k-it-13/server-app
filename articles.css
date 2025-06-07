@@ -1,0 +1,89 @@
+/* Файл: articles.css */
+
+.articles-grid {
+    display: grid;
+    /* 3 колонки на больших экранах */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px; /* Уменьшаем отступ между блоками */
+    padding: 20px;
+    padding-top: 85px; /* Учитываем высоту навигации и отступ сверху */
+    box-sizing: border-box;
+}
+
+.article-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Превью сверху, заголовок снизу */
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.article-preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Сохраняем пропорции 16:9 для превью */
+    object-fit: cover;
+    display: block;
+    background-color: #eee;
+}
+
+.article-title {
+    padding: 10px 15px; /* Уменьшаем вертикальные отступы */
+    text-align: center;
+    font-size: 14px; /* Уменьшаем размер шрифта заголовка */
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: 1px solid #eee;
+}
+
+.articles-grid .loading-message,
+.articles-grid .error-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+.articles-grid .error-message {
+    color: #d9534f;
+}
+
+/* --- Адаптивность --- */
+
+/* Планшеты (например, от 769px до 992px) - 2 колонки */
+@media (max-width: 992px) and (min-width: 769px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 100px;
+    }
+}
+
+/* Мобильные устройства (<= 768px) - 1 колонка */
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: 1fr; /* 1 колонка */
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 85px;
+        gap: 15px;
+    }
+
+    .article-title {
+        font-size: 13px;
+    }
+}

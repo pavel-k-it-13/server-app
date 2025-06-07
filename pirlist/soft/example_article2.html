@@ -1,0 +1,251 @@
+/* комментарий название статьи */
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример Великолепной Статьи</title>
+    <link rel="stylesheet" href="../style.css"> <style>
+        /* Дополнительные стили для статьи */
+        body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e6f0ff 0%, #cbdcff 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(64, 112, 244, 0.15);
+      padding: 36px 24px 48px 24px;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+    h1 {
+      color: #4070f4;
+      font-size: 2.8em;
+      margin-bottom: 0.2em;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    h2 {
+      color: #1e3bb8;
+      margin-top: 2.2em;
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.18em;
+      line-height: 1.7;
+      margin: 1.2em 0;
+    }
+    ul {
+      font-size: 1.18em;
+      margin-left: 1.4em;
+      margin-bottom: 1.6em;
+    }
+    /* Основное изображение BlCore.png на всю ширину */
+    .main-img-full {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(64, 112, 244, 0.15);
+      background: #f0f4ff;
+      display: block;
+      margin: 0 auto 24px auto;
+      object-fit: contain;
+    }
+    /* Сетка 2x2 с соотношением сторон 16.5:9 */
+    .image-grid-custom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 18px;
+      width: 100%;
+      margin: 28px 0 38px 0;
+    }
+    .image-grid-custom img {
+      width: 100%;
+      aspect-ratio: 16.5 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(64, 112, 244, 0.15);
+      background: #f0f4ff;
+      display: block;
+    }
+    /* Кнопки загрузки */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .download-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(90deg, #4070f4 0%, #1e3bb8 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.15em;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(64, 112, 244, 0.3);
+    }
+    .download-btn:hover {
+      background: linear-gradient(90deg, #1e3bb8 0%, #4070f4 100%);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .download-btn svg {
+      width: 1.2em;
+      height: 1.2em;
+      fill: #fff;
+    }
+    /* Внимание */
+    .alert {
+      color: #1e3bb8;
+      font-weight: bold;
+      background: #dbe5ff;
+      border-left: 5px solid #4070f4;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin: 18px 0;
+      font-size: 1.09em;
+    }
+    a {
+      color: #4070f4;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #1e3bb8;
+    }
+    /* Адаптивность */
+    @media (max-width: 700px) {
+      .container {
+        padding: 16px 4vw 24px 4vw;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.4em;
+      }
+      .image-grid-custom {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        gap: 14px;
+      }
+      .main-img-full,
+      .image-grid-custom img {
+        max-width: 100%;
+      }
+      .button-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <i class="bx bx-menu menu-icon"></i>
+            <span class="logo-name">Наш Сайт</span>
+        </div>
+        <div class="sidebar">
+            <div class="logo">
+                <i class="bx bx-menu menu-icon"></i>
+                <span class="logo-name">Наш Сайт</span>
+            </div>
+            <div class="sidebar-content">
+                <ul class="lists">
+                    <li class="list">
+                        <a href="../index.html" class="nav-link">
+                            <i class="bx bx-film icon"></i>
+                            <span class="link">Видео</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../articles.html" class="nav-link active">
+                            <i class="bx bx-book-content icon"></i>
+                            <span class="link">Статьи</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="bottom-cotent">
+                     </div>
+            </div>
+        </div>
+    </nav>
+    <section class="overlay"></section>
+
+    <div class="article-content">
+        <div class="container">
+    <h1>Bloody 7 Mod</h1>
+    <p>
+      <strong>Bloody</strong> - программа для управления и настройки игровых мышей серии «Bloody Series» от компании A4Tech. Это условно-бесплатное приложение с ограниченным функционалом в бесплатной версии. Bloody предназначена для установки на ПК под управлением Windows 7, 8, 8.1, 10 и 11 (32 и 64 бит). Интерфейс переведён на русский язык.
+    </p>
+    <h2>В чём особенность Bloody 7 Mod?</h2>
+    <p>У данной модификации есть две версии:</p>
+    <ul>
+      <li>Bloody 7 ReSkin</li>
+      <li>Bloody Launcher</li>
+    </ul>
+    <h2>Bloody 7 ReSkin</h2>
+    <img src="/pirlist/bloody7mod/BlCore.png" alt="Bloody 7 ReSkin" class="main-img-full" />
+    <p>
+      Bloody 7 с обновлённым интерфейсом в современном стиле, исправленными визуальными багами и улучшенной читаемостью.
+    </p>
+    <div class="image-grid-custom">
+      <img src="/pirlist/bloody7mod/BlButton.png" alt="Кнопка Bloody 7" />
+      <img src="/pirlist/bloody7mod/BlMacro.png" alt="Макрос Bloody 7" />
+      <img src="/pirlist/bloody7mod/BlSens.png" alt="Чувствительность Bloody 7" />
+      <img src="/pirlist/bloody7mod/BlRGB.png" alt="RGB Bloody 7" />
+    </div>
+    <h2>Bloody Launcher</h2>
+    <img src="/pirlist/bloody7mod/Launcher.png" alt="Bloody Launcher" class="main-img-full" />
+    <p>
+      Bloody Launcher позволяет создавать профиль всех настроек Bloody 7 для каждой игры.
+    </p>
+    <p>
+      В данный лаунчер интегрирован Bloody 7 ReSkin.
+    </p>
+    <p>
+      Чтобы создать новый профиль, нажмите <strong>Add Profile</strong>, затем введите желаемое имя профиля и выберите изображение для профиля размером 80×80 пикселей (эта картинка будет отображаться в правом нижнем углу Bloody 7 ReSkin).
+    </p>
+    <div class="alert">
+      ВНИМАНИЕ: изображение должно быть в формате PNG размером 80×80 пикселей, иначе оно может отображаться некорректно!
+    </div>
+    <p>
+      Картинку можно взять на сайте <a href="https://icons8.ru/" target="_blank" rel="noopener noreferrer">icons8.ru</a>. При скачивании изображения на этом сайте можно указать размер 80×80 px.
+    </p>
+    <div class="button-container">
+      <button class="download-btn" type="button" onclick="window.location.href='https://icons8.ru/'">
+        Скачать PNG
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z" />
+        </svg>
+      </button>
+      <button class="download-btn" type="button">
+        Скачать ZIP
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+    </div>
+
+    <script src="../articles.js"></script> </body>
+</html>
